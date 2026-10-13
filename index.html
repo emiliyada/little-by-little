@@ -9,7 +9,7 @@
 :root{--bg:#101413;--panel:#191f1d;--panel2:#202825;--ink:#f3f5ef;--muted:#aab5ae;--lime:#d4f477;--line:#303a35;--orange:#ffbd8a;--red:#ff9c9c}
 *{box-sizing:border-box} body{margin:0;background:radial-gradient(ellipse at top,#1c2922 0,#101413 55%);color:var(--ink);font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
 button,input,select{font:inherit}button{cursor:pointer} .app{max-width:760px;margin:auto;padding:22px 16px 100px}
-header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0 24px}.brand{font-size:13px;letter-spacing:.17em;text-transform:uppercase;color:var(--lime);font-weight:800}.tiny{font-size:12px;color:var(--muted)}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0 24px}.header-actions{display:flex;align-items:center;gap:7px}.corner-icon{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:18px}.brand{font-size:13px;letter-spacing:.17em;text-transform:uppercase;color:var(--lime);font-weight:800}.tiny{font-size:12px;color:var(--muted)}
 h1{font-size:clamp(32px,8vw,48px);line-height:1.02;letter-spacing:-.05em;margin:10px 0 14px}h2{font-size:22px;letter-spacing:-.03em;margin:0 0 12px}h3{font-size:16px;margin:0 0 6px}p{margin:7px 0 12px}.muted{color:var(--muted)}.lime{color:var(--lime)}
 .hero{padding:23px;border:1px solid #3b4b3e;border-radius:24px;background:linear-gradient(135deg,#25352a,#1a211e 68%);position:relative;overflow:hidden}.hero:after{content:"↗";position:absolute;right:16px;top:0;font-size:95px;color:#d4f47715;font-weight:900}.hero p{max-width:490px;color:#d0d9d2}.tag{display:inline-flex;border:1px solid #58664b;border-radius:999px;padding:5px 9px;font-size:12px;color:var(--lime);font-weight:700;letter-spacing:.02em}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;min-width:0}.card p{font-size:14px;color:var(--muted)}.stat{font-size:27px;font-weight:800;letter-spacing:-.04em}.section{margin-top:26px}.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.btn{border:0;border-radius:13px;background:var(--lime);color:#172014;font-weight:800;padding:12px 16px}.btn:active{transform:scale(.98)}.btn.secondary{background:var(--panel2);color:var(--ink);border:1px solid var(--line)}.btn.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}.btn.small{padding:9px 11px;font-size:13px}.btn.full{width:100%;margin-top:10px}.btn:disabled{opacity:.35;cursor:not-allowed}
@@ -26,7 +26,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;margin-top:30px}
 /* Little by Little RPG character system */
 .character-hero{display:grid;grid-template-columns:minmax(115px, .72fr) minmax(0,1.4fr);gap:16px;align-items:center;padding:16px;border:1px solid #425441;border-radius:22px;background:linear-gradient(140deg,#243329,#151b18)}
 .avatar-frame{height:220px;overflow:hidden;border-radius:15px;border:1px solid #52664a;background:#111713;display:flex;justify-content:center;align-items:flex-start}
-.avatar-frame img{height:100%;width:100%;object-fit:contain;object-position:center center;image-rendering:auto}
+.avatar-frame img{height:100%;width:100%;object-fit:contain;object-position:center center;image-rendering:pixelated;image-rendering:crisp-edges}
 .xpbar{height:10px;border-radius:99px;background:#303a35;overflow:hidden;margin:8px 0}.xpbar div{height:100%;width:0;background:linear-gradient(90deg,#a5d77c,#e0f48c);transition:width .25s}
 .rpg-stat{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:12px 0;font-size:13px}.rpg-stat-track{width:42%;height:7px;background:#303a35;border-radius:99px;overflow:hidden}.rpg-stat-track span{display:block;height:100%;background:#b5db87;width:10%}
 .quest{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}.quest:last-child{border-bottom:0}.quest-icon{width:30px;height:30px;display:grid;place-items:center;background:#303b31;border-radius:10px;flex:none}.quest.done .quest-icon{background:var(--lime);color:#172014}.quest p{margin:2px 0 0;font-size:13px;color:var(--muted)}
@@ -37,20 +37,20 @@ footer{font-size:12px;color:var(--muted);text-align:center;margin-top:30px}
 
 /* Room creator + gentle activity tools */
 .room-hero{border:1px solid #4d3768;border-radius:20px;padding:16px;background:radial-gradient(circle at 80% 0,#582b7d 0,transparent 42%),linear-gradient(135deg,#17121f,#111319);margin:14px 0}
-.room-scene{min-height:230px;border:2px solid #65458b;border-radius:16px;overflow:hidden;position:relative;padding:12px;background:linear-gradient(180deg,#211432 0%,#171725 58%,#28212f 58%,#211b29 100%)}
+.room-scene{height:360px;min-height:360px;border:4px solid #65458b;border-radius:7px;overflow:hidden;position:relative;padding:12px;background:linear-gradient(180deg,#211432 0%,#171725 64%,#28212f 64%,#211b29 100%);image-rendering:pixelated;box-shadow:inset 0 0 0 4px #100d15,inset 0 0 0 7px #352344}
 .room-scene:before{content:'☾  ✦  ·  ✧';position:absolute;top:10px;right:12px;color:#c5a5ff;letter-spacing:8px;font-size:14px;opacity:.9}
 .room-scene:after{content:'';position:absolute;left:0;right:0;bottom:0;height:6px;background:var(--room-accent,#a855f7)}
-.room-window{position:absolute;left:12px;top:32px;width:70px;height:86px;border:3px solid #8570a6;border-radius:5px;background:linear-gradient(#161a38,#533a78);box-shadow:0 0 18px #a855f744}
+.room-window{position:absolute;left:7%;top:12%;width:22%;height:30%;border:5px solid #8570a6;border-radius:2px;background:linear-gradient(#161a38,#533a78);box-shadow:0 0 18px #a855f744,inset 0 0 0 3px #211432}
 .room-window:before{content:'✦  ·\A ·  ☾';white-space:pre;display:block;text-align:center;padding-top:12px;color:#d7c7ff;line-height:1.8}
-.room-wall-title{position:absolute;left:94px;top:43px;font-size:12px;letter-spacing:.13em;color:#e8dcff;text-transform:uppercase;max-width:55%}
-.room-bed{position:absolute;bottom:13px;left:16%;width:42%;height:62px;background:var(--room-accent,#6d28d9);border:3px solid #100d15;border-radius:10px 10px 4px 4px;box-shadow:0 -10px 0 #3d3150 inset}
-.room-bed:before{content:' ';position:absolute;left:6px;top:6px;width:38%;height:18px;border-radius:5px;background:#eee8f8}
-.room-bed:after{content:'✦';position:absolute;right:10px;top:10px;color:#fff;font-size:18px}
-.room-desk{position:absolute;right:10%;bottom:13px;width:22%;height:39px;background:#292631;border:2px solid #100d15;border-radius:4px}
+.room-wall-title{position:absolute;left:36%;top:11%;font-size:clamp(10px,2.4vw,15px);letter-spacing:.13em;color:#e8dcff;text-transform:uppercase;max-width:55%;text-shadow:2px 2px #100d15}
+.room-bed{position:absolute;bottom:7%;left:12%;width:48%;height:25%;background:var(--room-accent,#6d28d9);border:4px solid #100d15;border-radius:2px;box-shadow:0 -18px 0 #3d3150 inset,8px 8px 0 #100d15}
+.room-bed:before{content:' ';position:absolute;left:5%;top:8%;width:35%;height:30%;border-radius:2px;background:#eee8f8;border:3px solid #b7a0c8}
+.room-bed:after{content:'✦';position:absolute;right:10%;top:8%;color:#fff;font-size:18px}
+.room-desk{position:absolute;right:8%;bottom:7%;width:25%;height:16%;background:#292631;border:4px solid #100d15;border-radius:2px;box-shadow:7px 7px 0 #100d15}
 .room-desk:before{content:'▰';position:absolute;left:18%;top:-25px;color:#b7a0ff;font-size:24px;text-shadow:0 0 8px #b7a0ff}
 .room-floor{position:absolute;bottom:0;left:0;right:0;height:13px;background:#312639}
-.room-placed{position:absolute;inset:0;pointer-events:none;display:flex;flex-wrap:wrap;align-content:flex-start;gap:5px;padding:120px 8px 38px;overflow:hidden}
-.room-placed span{font-size:22px;filter:drop-shadow(0 2px 3px #0008)}
+.room-placed{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.room-placed span{position:absolute;display:grid;place-items:center;min-width:29px;min-height:29px;padding:2px;font-size:clamp(21px,5.5vw,34px);background:#17111f;border:2px solid #8b70a8;border-radius:2px;box-shadow:3px 3px 0 #100d15;filter:none;image-rendering:pixelated}.room-placed span:nth-child(6n+1){left:6%;top:49%}.room-placed span:nth-child(6n+2){left:36%;top:26%}.room-placed span:nth-child(6n+3){right:8%;top:30%}.room-placed span:nth-child(6n+4){left:68%;top:49%}.room-placed span:nth-child(6n+5){left:37%;top:47%}.room-placed span:nth-child(6n){right:7%;top:11%}.room-placed span[title*="blanket"],.room-placed span[title*="duvet"],.room-placed span[title*="cushion"]{left:24%;top:72%;background:transparent;border:0;box-shadow:none}.room-placed span[title*="plant"],.room-placed span[title*="mushroom"]{top:57%}
 .room-color-row{display:flex;gap:9px;flex-wrap:wrap;margin:8px 0 14px}
 .room-swatch{width:30px;height:30px;border-radius:50%;border:2px solid #ffffff70;padding:0;min-width:30px}
 .room-catalog{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}
@@ -64,7 +64,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;margin-top:30px}
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">LITTLE BY LITTLE</div><div class="tiny">your private strength corner</div></div><div class="tag">NO ZERO DAYS REQUIRED</div></header>
+<header><div><div class="brand">LITTLE BY LITTLE</div><div class="tiny">your private strength corner</div></div><div class="header-actions"><button class="corner-icon" onclick="openProfile()" aria-label="Profile and settings" title="Profile / settings">⚙</button><div class="tag">OFFLINE OK</div></div></header>
 
 <section id="home">
   <div class="hero">
@@ -251,6 +251,7 @@ function renderExercises(){currentExercises=moves[length];checks=currentExercise
 function markMove(i,v){checks[i]=v;updateProgress()}
 function updateProgress(){let n=checks.filter(Boolean).length;$('sessionProgressText').textContent=`${n} / ${checks.length} done`;$('sessionProgress').style.width=(n/Math.max(1,checks.length)*100)+'%';$('finishBtn').disabled=n===0}
 function finishSession(){let n=checks.filter(Boolean).length;if(!n)return;history.unshift({date:new Date().toISOString(),count:n,length:length,done:currentExercises.filter((m,i)=>checks[i]).map(m=>m.name)});put('history',history);rpg.sessions++;rpg.strength+=Math.max(1,Math.ceil(n/2));rpg.stats.Strength=Math.min(100,rpg.stats.Strength+Math.max(1,n));rpg.stats.Endurance=Math.min(100,rpg.stats.Endurance+(length==='full'?3:length==='short'?2:1));rpg.stats.Focus=Math.min(100,rpg.stats.Focus+1);rpg.stats.Confidence=Math.min(100,rpg.stats.Confidence+1);let todayBefore=history.filter(x=>new Date(x.date).toDateString()===new Date().toDateString()).length;let reward=(length==='full'?35:length==='short'?25:15)+n*5+(todayBefore===1?15:0);rpg.xp+=reward;rpg.coins+=5;put('rpg',rpg);renderStats();renderRPG();showTab('character')}
+function openProfile(){showTab('log');setTimeout(()=>document.getElementById('profilePanel')?.scrollIntoView({behavior:'smooth',block:'start'}),80)}
 function showTab(tab){document.querySelectorAll('section[id]').forEach(s=>s.classList.toggle('hidden',s.id!==tab));document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));if(tab==='workout'&&currentExercises.length===0)renderExercises();if(tab==='log'){renderHistory();renderCalendar();}if(tab==='character')renderRPG();if(tab==='room'){initRoom();renderRPG()}window.scrollTo({top:0,behavior:'smooth'})}
 function weekCount(){let now=new Date(),day=(now.getDay()+6)%7,start=new Date(now);start.setDate(now.getDate()-day);start.setHours(0,0,0,0);return history.filter(x=>new Date(x.date)>=start).length}
 function renderStats(){$('weekCount').textContent=`${weekCount()} / 3`;$('logWeek').textContent=`${weekCount()} / 3`;$('totalCount').textContent=history.length}
@@ -306,7 +307,7 @@ function renderRoomSwatches(){let el=$('roomSwatches');if(!el)return;el.innerHTM
 function setRoomAccent(c){roomState.accent=c;saveRoom();renderRoomSwatches();renderRoomPreview()}
 function setRoomMood(m){roomState.mood=m;let x=roomMoods[m]||roomMoods.purple;roomState.accent=x[0];saveRoom();renderRoomSwatches();renderRoomPreview()}
 function saveRoom(){put('roomState',roomState)}
-function renderRoomPreview(){if(!$('roomScene'))return;let m=roomMoods[roomState.mood]||roomMoods.purple;$('roomScene').style.setProperty('--room-accent',roomState.accent||m[0]);$('roomWallTitle').textContent=m[1];let placed=roomState.placed.map(id=>roomItems.find(x=>x.id===id)).filter(Boolean);$('roomPlaced').innerHTML=placed.map(x=>`<span title="${x.name}">${x.emoji}</span>`).join('');$('roomItemCount').textContent=`${placed.length} placed`;}
+function renderRoomPreview(){if(!$('roomScene'))return;let m=roomMoods[roomState.mood]||roomMoods.purple;$('roomScene').style.setProperty('--room-accent',roomState.accent||m[0]);$('roomWallTitle').textContent=m[1];let placed=roomState.placed.map(id=>roomItems.find(x=>x.id===id)).filter(Boolean);$('roomPlaced').innerHTML=placed.map((x,i)=>`<span title="${x.name}" aria-label="${x.name}" style="--item-index:${i}">${x.emoji}</span>`).join('');$('roomItemCount').textContent=`${placed.length} placed`;}
 function renderRoomCatalog(){if(!$('roomCatalog'))return;let cat=$('roomCategory').value,query=($('roomSearch').value||'').toLowerCase().trim();let lv=levelFromXP(rpg.xp);let list=roomItems.filter(x=>(cat==='all'||x.category===cat)&&(!query||(x.name+' '+x.category).toLowerCase().includes(query)));$('roomCatalog').innerHTML=list.map(x=>{let owned=roomState.owned.includes(x.id),placed=roomState.placed.includes(x.id),locked=!owned&&(rpg.coins<x.cost||lv<x.level);let action=owned?(placed?'Remove':'Place'):locked?`🔒 ${x.cost}🪙`:`Unlock ${x.cost?x.cost+'🪙':'free'}`;return `<div class="room-item ${placed?'selected':''} ${locked?'locked':''}"><span class="emoji">${x.emoji}</span><div class="item-copy"><b>${x.name}</b><small>${x.cost===0?'Starter item':`Lv.${x.level} · ${x.cost} coins`}${placed?' · In room':''}</small></div><button class="btn ${placed?'secondary':''} small" onclick="roomItemAction('${x.id}')">${action}</button></div>`}).join('')||'<p class="muted">No matches — try another search.</p>'}
 function roomItemAction(id){let item=roomItems.find(x=>x.id===id);if(!item)return;let owned=roomState.owned.includes(id);if(owned){roomState.placed=roomState.placed.includes(id)?roomState.placed.filter(x=>x!==id):[...roomState.placed,id]}else{if(levelFromXP(rpg.xp)<item.level||rpg.coins<item.cost){alert(`This item unlocks at level ${item.level} and costs ${item.cost} coins. Keep collecting coins through sessions and quests — no rush.`);return}rpg.coins-=item.cost;roomState.owned.push(id);roomState.placed.push(id);put('rpg',rpg);renderRPG()}saveRoom();renderRoomCatalog();renderRoomPreview()}
 function randomRoom(){let eligible=roomItems.filter(x=>roomState.owned.includes(x.id));let chosen=[];let cats=['posters','women','cars','grinch','pride','lights','plants','furniture','fitness','collectibles','textiles'];cats.forEach(c=>{let a=eligible.filter(x=>x.category===c);if(a.length&&Math.random()<.72)chosen.push(a[Math.floor(Math.random()*a.length)].id)});roomState.placed=[...new Set(chosen)];let moods=Object.keys(roomMoods);roomState.mood=moods[Math.floor(Math.random()*moods.length)];roomState.accent=roomMoods[roomState.mood][0];saveRoom();$('roomMood').value=roomState.mood;renderRoomSwatches();renderRoomCatalog();renderRoomPreview()}
@@ -334,6 +335,12 @@ function renderCalendar(){let el=$('progressCalendar');if(!el)return;let now=new
 
 if($('activityEnergy')){document.querySelectorAll('[data-aenergy]').forEach(b=>b.classList.toggle('active',b.dataset.aenergy===activityEnergy));pickActivity()}
 renderCalendar();
+
+/* Usability polish: visible character first, editor directly below; settings icon is optional/local only. */
+document.addEventListener('DOMContentLoaded',()=>{
+ const section=document.getElementById('character'), hero=section&&section.querySelector('.character-hero'), editor=document.getElementById('characterCustomiser');
+ if(section&&hero&&editor)section.insertBefore(hero,editor);
+});
 </script>
 
 <script>
@@ -541,6 +548,12 @@ window.lookAction=function(id){
 };
 renderLooks();
 })();
+
+/* Usability polish: visible character first, editor directly below; settings icon is optional/local only. */
+document.addEventListener('DOMContentLoaded',()=>{
+ const section=document.getElementById('character'), hero=section&&section.querySelector('.character-hero'), editor=document.getElementById('characterCustomiser');
+ if(section&&hero&&editor)section.insertBefore(hero,editor);
+});
 </script>
 
 </body></html>
