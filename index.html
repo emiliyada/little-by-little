@@ -96,6 +96,27 @@ footer{font-size:12px;color:var(--muted);text-align:center;margin-top:30px}
 .avatar-frame.has-blue-aura img{filter:drop-shadow(0 0 5px #7dd3fc) drop-shadow(0 0 14px #2563eb)}
 @media(max-width:440px){.room-scene{height:340px;min-height:340px}.room-art-poster,.room-art-pride,.room-art-women,.room-art-cars,.room-art-grinch,.room-art-fitness,.room-art-collectibles{width:44px!important;height:60px!important}.room-art-pride[data-room-id="pride_flag"]{width:52px!important;height:42px!important}}
 
+
+/* Room redesign: permanent pixel-art architecture, empty of personal decor by default */
+.room-scene{height:clamp(360px,82vw,500px)!important;min-height:360px!important;padding:0!important;border:5px solid #100d18!important;border-radius:3px!important;overflow:hidden!important;box-shadow:inset 0 0 0 3px #58406f!important;background:linear-gradient(180deg,#252042 0%,#252042 68%,#392b4b 68%,#392b4b 100%)!important;isolation:isolate}
+.room-scene:before{content:''!important;position:absolute;left:0;right:0;top:0;height:8px;background:#80629b;box-shadow:0 7px 0 #161225;z-index:4}
+.room-scene:after{height:7px!important;background:var(--room-accent,#7e22ce)!important;z-index:4}
+.room-window{left:29%!important;top:13%!important;width:42%!important;height:35%!important;border:6px solid #9b85b4!important;border-radius:0!important;background:linear-gradient(180deg,#15152d,#252c55 70%,#15152d)!important;box-shadow:inset 0 0 0 4px #181226,0 0 0 3px #0d0a14!important;z-index:0!important}
+.room-window:before{content:''!important;position:absolute;left:49%;top:0;bottom:0;width:5px;background:#bca7cf;padding:0!important;box-shadow:-80px 50px 0 -2px #8f7ba8,80px 50px 0 -2px #8f7ba8}
+.room-wall-title{display:none!important}
+.room-bed{display:block!important;position:absolute!important;left:0!important;bottom:8%!important;width:43%!important;height:30%!important;background:var(--room-accent,#7e22ce)!important;border:5px solid #100d18!important;border-radius:0!important;box-shadow:inset 0 -22px 0 #2d2441, inset 0 9px 0 #a18bb7,7px 7px 0 #100d18!important;z-index:1!important}
+.room-bed:before{content:''!important;left:5%!important;top:7%!important;width:35%!important;height:22%!important;border:3px solid #100d18!important;border-radius:0!important;background:#d6cce2!important;box-shadow:inset -7px -4px 0 #a99abd!important}
+.room-bed:after{content:''!important;position:absolute!important;right:8%!important;top:7%!important;width:34%!important;height:22%!important;background:#d6a4d4!important;box-shadow:inset -7px -4px 0 #9a5e9d!important}
+.room-desk{display:block!important;position:absolute!important;right:5%!important;bottom:20%!important;width:31%!important;height:7%!important;background:#875d82!important;border:4px solid #100d18!important;border-radius:0!important;box-shadow:0 8px 0 #39243f,5px 14px 0 #100d18!important;z-index:1!important}
+.room-desk:before{content:''!important;position:absolute!important;left:24%!important;top:-65px!important;width:48%!important;height:60px!important;background:#12101d!important;border:4px solid #100d18!important;box-shadow:inset 0 0 0 3px var(--room-accent,#7e22ce)!important}
+.room-floor{height:13%!important;background:repeating-linear-gradient(0deg,#3b2b47 0 14px,#241b31 14px 18px)!important;border-top:5px solid #100d18!important;z-index:0!important}
+.room-placed{z-index:3!important}
+.room-art-furniture[data-room-id="furn_bed"],.room-art-furniture[data-room-id="furn_desk"]{display:none!important}
+.avatar-frame{overflow:visible!important;isolation:isolate!important}
+.avatar-frame img{filter:drop-shadow(0 0 2px #f0d8ff) drop-shadow(0 0 7px #c084fc) drop-shadow(0 0 14px #a855f7) drop-shadow(0 0 24px #9333ea)!important;}
+.avatar-frame.has-purple-aura:before{display:none!important}
+@media(max-width:440px){.room-scene{height:360px!important;min-height:360px!important}.room-window{left:27%!important;width:46%!important}.room-bed{width:46%!important;height:28%!important}.room-desk{right:4%!important;width:32%!important}}
+
 </style>
 </head>
 <body>
@@ -177,9 +198,9 @@ footer{font-size:12px;color:var(--muted);text-align:center;margin-top:30px}
   <div class="room-hero">
     <div class="row" style="align-items:center"><div><h2 style="margin-bottom:3px">Your room</h2><div class="tiny">Live preview · saved on this device</div></div><div class="tag" id="roomItemCount">0 placed</div></div>
     <div class="room-scene" id="roomScene" style="--room-accent:#7e22ce;margin-top:12px">
-      <div class="room-window"></div><div class="room-wall-title" id="roomWallTitle">MIDNIGHT HIDEOUT</div><div class="room-bed"></div><div class="room-desk"></div><div class="room-floor"></div><div class="room-placed" id="roomPlaced"></div>
+      <div class="room-window"></div><div class="room-wall-title" id="roomWallTitle" aria-hidden="true"></div><div class="room-bed"></div><div class="room-desk"></div><div class="room-floor"></div><div class="room-placed" id="roomPlaced"></div>
     </div>
-    <div class="tiny" style="margin-top:9px">Choose a colour, then add or remove decor below. The room is drawn in crisp pixel art. Posters, furniture, lights and plants appear as illustrated objects, and everything works offline.</div>
+    <div class="tiny" style="margin-top:9px">Choose a colour, then add or remove decor below. The room starts with its pixel-art bed, window, desk and floor only. Add decorations whenever you want; colours are fully changeable.</div>
   </div>
   <div class="card">
     <h3>Room colour</h3><p>Purples first, with black, small touches of white/grey, blue and red.</p>
@@ -335,7 +356,7 @@ const roomItems=[
  ['collect_plush','🧸','Cute-but-creepy plushie','collectibles',0,1],['collect_skull','💀','Decorative skull','collectibles',0,1],['collect_crystal','🔮','Amethyst crystal','collectibles',0,1],['collect_books','📚','Dark fantasy book stack','collectibles',0,1],['collect_game','🎮','Retro game console','collectibles',10,2],['collect_vinyl','💿','Vinyl record display','collectibles',10,2],['collect_mug','☕','Favourite mug shelf','collectibles',0,1],['collect_candle','🕯️','Gothic candle holder','collectibles',10,2],['collect_skate','🛹','Skateboard wall mount','collectibles',10,2],['collect_tattoo','🖤','Tattoo flash art print','collectibles',10,2],
  ['textile_blanket','🖤','Black velvet blanket','textiles',0,1],['textile_purple','💜','Purple fluffy blanket','textiles',0,1],['textile_star','🌙','Starry duvet cover','textiles',10,2],['textile_plaid','🟥','Red-and-black plaid throw','textiles',0,1],['textile_pillow','☁️','Cloud cushion','textiles',0,1],['textile_mushroom','🍄','Mushroom cushion','textiles',10,2],['textile_pride','🧡','Lesbian pride cushion','textiles',0,1],['textile_rug','🟣','Celestial floor cushion','textiles',10,2]
 ].map(x=>({id:x[0],emoji:x[1],name:x[2],category:x[3],cost:x[4],level:x[5]}));
-let roomState=get('roomState',{owned:roomItems.filter(x=>x.cost===0).map(x=>x.id),placed:['poster_moon','hotwheels_shelf','grinch_plush','pride_flag','light_purple','plant_mushroom','fit_bag','furn_bed','furn_desk','textile_purple'],accent:'#7e22ce',mood:'purple'}); roomState.owned=[...new Set([...(roomState.owned||[]), 'pride_flag','furn_bed'])]; roomState.placed=[...new Set([...(roomState.placed||[]).filter(id=>roomItems.some(x=>x.id===id)), 'pride_flag','furn_bed'])];
+let roomState=get('roomState',{owned:roomItems.filter(x=>x.cost===0).map(x=>x.id),placed:[],accent:'#7e22ce',mood:'purple'}); roomState.owned=[...new Set([...(roomState.owned||[]), 'pride_flag','furn_bed'])]; roomState.placed=[...(roomState.placed||[]).filter(id=>roomItems.some(x=>x.id===id)&&!['pride_flag','furn_bed'].includes(id))];
 const roomAccents=[['#7e22ce','Purple'],['#a855f7','Lilac'],['#4c1d95','Deep violet'],['#17131e','Black'],['#d8d3e2','White'],['#777784','Grey'],['#2563eb','Blue'],['#dc2626','Red'],['#ec4899','Pink'],['#f97316','Orange'],['#166534','Forest'],['#22c55e','Mushroom green']];
 const roomMoods={purple:['#7e22ce','MIDNIGHT HIDEOUT'],gothic:['#6d28d9','GOTHIC ROMANCE'],cyber:['#2563eb','NEON AFTER DARK'],mushroom:['#6d28d9','MUSHROOM MOON'],grunge:['#7c2d12','GRUNGE DEN'],celestial:['#8b5cf6','CELESTIAL DREAM'],garage:['#dc2626','MIDNIGHT GARAGE'],pride:['#db2777','LOVE IS LOVE']};
 function roomSvg(item){
