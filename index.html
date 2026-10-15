@@ -641,3 +641,21 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 
 </body></html>
+<style id="editable-bedroom-final-override">
+/* Replace the old CSS-drawn room with the new bedroom image; retain the interactive placement layer. */
+#roomScene.room-scene{
+  height:auto!important; min-height:0!important; aspect-ratio:3/2!important;
+  padding:0!important; overflow:hidden!important; position:relative!important;
+  background-color:#17112b!important;
+  background-size:100% 100%!important; background-position:center!important; background-repeat:no-repeat!important;
+  border:2px solid #65458b!important; box-shadow:0 0 18px #8b5cf633!important;
+}
+#roomScene.room-scene:before,#roomScene.room-scene:after,
+#roomScene .room-window,#roomScene .room-wall-title,#roomScene .room-bed,
+#roomScene .room-desk,#roomScene .room-floor { display:none!important; content:none!important; }
+#roomScene #roomPlaced{position:absolute!important;inset:0!important;z-index:5!important;pointer-events:none!important;overflow:hidden!important}
+#roomScene #roomPlaced>*{pointer-events:auto!important}
+#roomScene .room-placed span{cursor:pointer!important}
+#roomScene .room-placed span:active{transform:scale(.96)}
+@media(max-width:440px){#roomScene.room-scene{height:auto!important;min-height:0!important;aspect-ratio:3/2!important}}
+</style>
