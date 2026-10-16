@@ -663,4 +663,20 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 </script>
 
+
+<style id="final-bedroom-aura-repair">
+/* FIX: furniture items are part of the room and must remain visible/editable. */
+#roomScene .room-placed .room-art-furniture[data-room-id="furn_bed"],
+#roomScene .room-placed .room-art-furniture[data-room-id="furn_desk"] { display:block !important; visibility:visible !important; opacity:1 !important; }
+#roomScene .room-placed .room-art-furniture { display:block !important; visibility:visible !important; }
+#roomScene.room-scene { position:relative !important; background-size:100% 100% !important; background-repeat:no-repeat !important; overflow:hidden !important; }
+#roomScene .room-placed { position:absolute !important; inset:0 !important; pointer-events:none !important; }
+#roomScene .room-placed .room-art { pointer-events:auto !important; }
+/* Aura uses alpha-aware drop-shadows on the character itself, with a soft radial halo behind it. */
+.avatar-frame { position:relative !important; isolation:isolate !important; overflow:visible !important; }
+.avatar-frame.has-purple-aura { background:transparent !important; }
+.avatar-frame.has-purple-aura:before { content:"" !important; position:absolute !important; z-index:0 !important; left:18% !important; right:18% !important; top:8% !important; bottom:5% !important; border-radius:50% !important; background:radial-gradient(ellipse at center, rgba(168,85,247,.42) 0%, rgba(147,51,234,.24) 38%, rgba(147,51,234,0) 72%) !important; filter:blur(12px) !important; pointer-events:none !important; }
+.avatar-frame.has-purple-aura img { position:relative !important; z-index:1 !important; filter:drop-shadow(0 0 2px #f0d9ff) drop-shadow(0 0 6px #c084fc) drop-shadow(0 0 12px #a855f7) drop-shadow(0 0 18px #9333ea) !important; }
+</style>
+
 </body></html>
